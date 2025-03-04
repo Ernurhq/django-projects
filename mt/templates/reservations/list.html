@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Reservations{% endblock %}
+
+{% block content %}
+    <h1>Reservations</h1>
+    <a href="{% url 'reservations:create' %}" class="btn btn-primary">New Reservation</a>
+
+
+    <ul class="list-group mt-3">
+        {% for reservation in reservations %}
+            <li class="list-group-item">
+                {{ reservation.customer.name }} - {{ reservation.table.number }} at {{ reservation.date_time }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

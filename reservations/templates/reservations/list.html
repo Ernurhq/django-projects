@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Reservations</h2>
+<a href="{% url 'reservations:create' %}" class="btn btn-primary">New Reservation</a>
+<ul>
+    {% for reservation in reservations %}
+    <li>
+        {{ reservation.customer }} - {{ reservation.table }} on {{ reservation.date }} at {{ reservation.time }}
+        <a href="{% url 'reservations:update' reservation.pk %}">Edit</a> |
+        <a href="{% url 'reservations:delete' reservation.pk %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+<h1>Список бронирований</h1>
+<p>Добро пожаловать на страницу бронирований!</p>
